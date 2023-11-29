@@ -4,7 +4,9 @@ import 'package:native_crash/native_crash_method_channel.dart';
 import 'package:native_crash/native_crash_platform_interface.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-class MockNativeCrashPlatform with MockPlatformInterfaceMixin implements NativeCrashPlatform {
+class MockNativeCrashPlatform
+    with MockPlatformInterfaceMixin
+    implements NativeCrashPlatform {
   @override
   Future<void> crash() {
     throw Exception('crash');

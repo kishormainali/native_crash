@@ -1,5 +1,5 @@
 name: native_crash
-description: "Flutter plugin to simulate native crash."
+description: Flutter plugin to simulate native crash. By calling crash it will crash the app.
 version: 1.0.0
 homepage: https://github.com/kishormainali/native_crash
 repository: https://github.com/kishormainali/native_crash
