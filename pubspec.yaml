@@ -1,0 +1,34 @@
+name: native_crash
+description: "Flutter plugin to simulate native crash."
+version: 1.0.0
+homepage: https://github.com/kishormainali/native_crash
+repository: https://github.com/kishormainali/native_crash
+topics: 
+  - crash
+  - native-crash
+  - android
+  - ios
+  - runtime-crash
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.13.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.1.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.kishormainali.native_crash
+        pluginClass: NativeCrashPlugin
+      ios:
+        pluginClass: NativeCrashPlugin
+
