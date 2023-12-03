@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:native_crash/native_crash.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -16,6 +17,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    checkRooted();
   }
 
   @override
@@ -35,5 +37,14 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
+  }
+
+  void checkRooted() async {
+    bool isRooted = await NativeCrash.checkJailBreak();
+    debugPrint('isRooted: $isRooted');
+    bool isDevMode = await NativeCrash.checkDevMode();
+    debugPrint('isDevMode: $isDevMode');
+    bool isSimulator = await NativeCrash.checkEmulator();
+    debugPrint('isSimulator: $isSimulator');
   }
 }

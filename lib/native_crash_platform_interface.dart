@@ -23,7 +23,19 @@ abstract class NativeCrashPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<void> crash() {
+  Future<void> crash([String? message]) {
     throw UnimplementedError('crash() has not been implemented.');
+  }
+
+  Future<bool> checkJailBreak({bool enableLogging = false}) {
+    throw UnimplementedError('checkJailBreak() has not been implemented.');
+  }
+
+  Future<bool> checkDevMode() {
+    throw UnimplementedError('checkDevMode() has not been implemented.');
+  }
+
+  Future<bool> checkEmulator() {
+    throw UnimplementedError('checkEmulator() has not been implemented.');
   }
 }

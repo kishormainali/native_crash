@@ -8,8 +8,23 @@ class MockNativeCrashPlatform
     with MockPlatformInterfaceMixin
     implements NativeCrashPlatform {
   @override
-  Future<void> crash() {
+  Future<void> crash([String? message]) {
     throw Exception('crash');
+  }
+
+  @override
+  Future<bool> checkDevMode() async {
+    return false;
+  }
+
+  @override
+  Future<bool> checkEmulator() async {
+    return false;
+  }
+
+  @override
+  Future<bool> checkJailBreak({bool enableLogging = false}) async {
+    return false;
   }
 }
 
@@ -24,5 +39,23 @@ void main() {
     MockNativeCrashPlatform fakePlatform = MockNativeCrashPlatform();
     NativeCrashPlatform.instance = fakePlatform;
     expect(() => NativeCrash.crash(), throwsException);
+  });
+
+  test('checkJailBreak', () async {
+    MockNativeCrashPlatform fakePlatform = MockNativeCrashPlatform();
+    NativeCrashPlatform.instance = fakePlatform;
+    expect(await NativeCrash.checkJailBreak(), false);
+  });
+
+  test('checkDevMode', () async {
+    MockNativeCrashPlatform fakePlatform = MockNativeCrashPlatform();
+    NativeCrashPlatform.instance = fakePlatform;
+    expect(await NativeCrash.checkDevMode(), false);
+  });
+
+  test('checkEmulator', () async {
+    MockNativeCrashPlatform fakePlatform = MockNativeCrashPlatform();
+    NativeCrashPlatform.instance = fakePlatform;
+    expect(await NativeCrash.checkEmulator(), false);
   });
 }

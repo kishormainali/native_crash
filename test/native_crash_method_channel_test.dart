@@ -13,7 +13,16 @@ void main() {
         .setMockMethodCallHandler(
       channel,
       (MethodCall methodCall) async {
-        throw Exception('Native crash');
+        if (methodCall.method == 'crash') {
+          throw Exception('Native crash');
+        } else if (methodCall.method == 'checkJailBreak') {
+          return false;
+        } else if (methodCall.method == 'isDevMode') {
+          return false;
+        } else if (methodCall.method == 'isEmulator') {
+          return false;
+        }
+        return null;
       },
     );
   });
@@ -25,5 +34,17 @@ void main() {
 
   test('crash', () async {
     expect(platform.crash(), throwsException);
+  });
+
+  test('checkJailBreak', () async {
+    expect(await platform.checkJailBreak(), false);
+  });
+
+  test('checkDevMode', () async {
+    expect(await platform.checkDevMode(), false);
+  });
+
+  test('checkEmulator', () async {
+    expect(await platform.checkEmulator(), false);
   });
 }

@@ -115,6 +115,9 @@
 				331C8082294A63A400263BE5 /* RunnerTests */,
 				FC3FD056E17EA69ADF4E61CA /* Pods */,
 				A76B3A382DCE25A45C03536E /* Frameworks */,
+				BC9405B37063466CB0C8839D /* xcschemes */,
+				BC940C03819651D78B50AC02 /* xcuserdata */,
+				BC940229515E2F985A69A544 /* kishor.xcuserdatad */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +152,54 @@
 				2AFB3308966E252FE9962FE8 /* Pods_RunnerTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC940229515E2F985A69A544 /* kishor.xcuserdatad */ = {
+			isa = PBXGroup;
+			children = (
+				BC9406699575653F13EE9CE1 /* xcschemes */,
+			);
+			name = kishor.xcuserdatad;
+			path = .symlinks/plugins/native_crash/example/ios/Runner.xcodeproj/xcuserdata/kishor.xcuserdatad;
+			sourceTree = "<group>";
+		};
+		BC9405B37063466CB0C8839D /* xcschemes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = xcschemes;
+			path = Runner.xcworkspace/xcuserdata/kishor.xcuserdatad/xcschemes;
+			sourceTree = "<group>";
+		};
+		BC9406699575653F13EE9CE1 /* xcschemes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = xcschemes;
+			sourceTree = "<group>";
+		};
+		BC940A72FAB28A8FA966B914 /* kishor.xcuserdatad */ = {
+			isa = PBXGroup;
+			children = (
+				BC940F21F982E558C103B4C7 /* xcschemes */,
+			);
+			path = kishor.xcuserdatad;
+			sourceTree = "<group>";
+		};
+		BC940C03819651D78B50AC02 /* xcuserdata */ = {
+			isa = PBXGroup;
+			children = (
+				BC940A72FAB28A8FA966B914 /* kishor.xcuserdatad */,
+			);
+			name = xcuserdata;
+			path = Runner.xcodeproj/xcuserdata;
+			sourceTree = "<group>";
+		};
+		BC940F21F982E558C103B4C7 /* xcschemes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = xcschemes;
 			sourceTree = "<group>";
 		};
 		FC3FD056E17EA69ADF4E61CA /* Pods */ = {
