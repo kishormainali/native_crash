@@ -28,8 +28,10 @@ public class NativeCrashPlugin: NSObject, FlutterPlugin {
         switch(call.method) {
         case NativeCrashPlugin.methodCrash:
             if let args = call.arguments as? [String: Any] {
+                print(args)
+                
                 let message = args["message"] as? String
-                try! crash(message)
+                try! crash(message: message)
                 result(nil)
             }
             break
@@ -54,7 +56,7 @@ public class NativeCrashPlugin: NSObject, FlutterPlugin {
             break
         }
     }
-    private func crash(message: String) throws {
+    private func crash(message: String?) throws {
         NSException(
             name: NSExceptionName(rawValue: "NativeCrashException"),
             reason: message ?? "This is a crash caused by calling .crash() in Dart.",
