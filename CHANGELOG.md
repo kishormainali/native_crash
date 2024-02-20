@@ -1,3 +1,8 @@
+## 1.1.2
+- dependency updates
+- updated android compileSdkVersion to 34
+- updated android minSdkVersion to 23
+
 ## 1.1.1
 - fix ios build issue
 

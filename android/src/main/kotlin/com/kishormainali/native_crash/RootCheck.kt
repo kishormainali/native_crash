@@ -1,7 +1,6 @@
 package com.kishormainali.native_crash
 
 import android.content.Context
-import android.os.Build
 import com.scottyab.rootbeer.RootBeer
 import java.io.File
 
@@ -22,7 +21,7 @@ object RootCheck {
     }
 
     private fun checkWithPaths(): Boolean {
-        val paths = arrayOf(
+        val paths: Array<String> = arrayOf(
             "/system/app/Superuser.apk",
             "/sbin/su",
             "/system/bin/su",
@@ -33,9 +32,7 @@ object RootCheck {
             "/system/bin/failsafe/su",
             "/data/local/su"
         )
-        for (path in paths) {
-            if (File(path).exists()) return true
-        }
+        for (path in paths) if (File(path).exists()) return true
         return false
     }
 
@@ -43,14 +40,8 @@ object RootCheck {
         var process: Process? = null
         return try {
             process = Runtime.getRuntime().exec(arrayOf("/system/xbin/which", "su"))
-
-            if (Build.VERSION.SDK_INT >= 23) {
-                val bufferedReader = process.inputStream.bufferedReader()
-                bufferedReader.readLine() != null
-            } else {
-                process.waitFor() == 0
-            }
-
+            val bufferedReader = process.inputStream.bufferedReader()
+            bufferedReader.readLine() != null
         } catch (t: Throwable) {
             false
         } finally {

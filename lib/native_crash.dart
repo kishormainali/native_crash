@@ -17,8 +17,7 @@ class NativeCrash {
 
   /// checkJailBreak
   static Future<bool> checkJailBreak({bool enableLogging = false}) {
-    return NativeCrashPlatform.instance
-        .checkJailBreak(enableLogging: enableLogging);
+    return NativeCrashPlatform.instance.checkJailBreak(enableLogging: enableLogging);
   }
 
   /// checkDevMode
@@ -51,8 +50,7 @@ class NativeCrash {
 Future<void> crashOnJailBreak(FutureOr<void> Function() builder) async {
   bool isRooted = await NativeCrash.checkJailBreak();
   if (isRooted && kReleaseMode) {
-    await NativeCrash.crash(
-        'You are trying to run your app on a jail broken/rooted device.');
+    await NativeCrash.crash('You are trying to run your app on a jail broken/rooted device.');
     return;
   }
   await builder();

@@ -12,8 +12,7 @@ class MethodChannelNativeCrash extends NativeCrashPlatform {
   @override
   Future<void> crash([String? message]) async {
     return await methodChannel.invokeMethod('crash', {
-      'message': message ??
-          'This message is thrown when crash() is called from dart side.',
+      'message': message ?? 'This message is thrown when crash() is called from dart side.',
     });
   }
 
