@@ -47,13 +47,20 @@ class NativeCrash {
 /// }
 /// ```
 /// {@endtemplate}
-Future<void> crashOnJailBreak(FutureOr<void> Function() builder) async {
+Future<void> crashOnJailBreak(
+  FutureOr<void> Function() builder, {
+  FutureOr<void> Function()? onRootJailBreakDetected,
+}) async {
   bool isRooted = await NativeCrash.checkJailBreak();
   if (isRooted && kReleaseMode) {
-    await NativeCrash.crash('You are trying to run your app on a jail broken/rooted device.');
-    return;
+    if (onRootJailBreakDetected != null) {
+      return onRootJailBreakDetected();
+    } else {
+      await NativeCrash.crash('You are trying to run your app on a jail broken/rooted device.');
+      return;
+    }
   }
-  await builder();
+  return builder();
 }
 
 /// {@template crash_on_dev_mode}
@@ -72,13 +79,20 @@ Future<void> crashOnJailBreak(FutureOr<void> Function() builder) async {
 /// }
 /// ```
 /// {@endtemplate}
-Future<void> crashOnDevMode(FutureOr<void> Function() builder) async {
+Future<void> crashOnDevMode(
+  FutureOr<void> Function() builder, {
+  FutureOr<void> Function()? onDevModeDetected,
+}) async {
   bool isDevMode = await NativeCrash.checkDevMode();
   if (isDevMode && kReleaseMode) {
-    await NativeCrash.crash('You have enabled developer mode on your device.');
-    return;
+    if (onDevModeDetected != null) {
+      return onDevModeDetected();
+    } else {
+      await NativeCrash.crash('You have enabled developer mode on your device.');
+      return;
+    }
   }
-  await builder();
+  return builder();
 }
 
 /// {@template crash_on_emulator}
@@ -97,11 +111,18 @@ Future<void> crashOnDevMode(FutureOr<void> Function() builder) async {
 /// }
 /// ```
 /// {@endtemplate}
-Future<void> crashOnEmulator(FutureOr<void> Function() builder) async {
+Future<void> crashOnEmulator(
+  FutureOr<void> Function() builder, {
+  FutureOr<void> Function()? onEmulatorDetected,
+}) async {
   bool isSimulator = await NativeCrash.checkEmulator();
   if (isSimulator && kReleaseMode) {
-    await NativeCrash.crash('You are running you app on Simulator/Emulator.');
-    return;
+    if (onEmulatorDetected != null) {
+      return onEmulatorDetected();
+    } else {
+      await NativeCrash.crash('You are running you app on Simulator/Emulator.');
+      return;
+    }
   }
-  await builder();
+  return builder();
 }
