@@ -40,7 +40,6 @@ import 'package:native_crash/native_crash.dart';
 bool isDevMode = await NativeCrash.checkDevMode();
 ```
 
-
 ## Check if device is emulator
 
 ```dart
@@ -50,9 +49,7 @@ import 'package:native_crash/native_crash.dart';
 bool isEmulator = await NativeCrash.checkEmulator();
 ```
 
-
 ## Crash app when device is rooted/jailbroken
-
 
 ```dart
 import 'package:native_crash/native_crash.dart';
@@ -62,11 +59,16 @@ import 'package:native_crash/native_crash.dart';
      () async {
        runApp(MyApp());
      },
+     /// you can also provide a custom widget to show when jailbreak/root detected instead of crashing the app
+     onRootJailBreakDetected:(){
+        print("Root/Jailbreak detected");
+        runApp(RootJailBreakApp());
+     }
    );
  }
 ```
 
-##  Crash app when device has developer mode enabled
+## Crash app when device has developer mode enabled
 
 ```dart
 import 'package:native_crash/native_crash.dart';
@@ -75,6 +77,11 @@ import 'package:native_crash/native_crash.dart';
    crashOnDevMode(
      () async {
        runApp(MyApp());
+     },
+     /// you can also provide a custom widget to show when developer mode detected instead of crashing the app
+     onDevModeDetected:(){
+        print("Developer mode detected");
+        runApp(DevModeApp());
      },
    );
  }
@@ -90,7 +97,11 @@ import 'package:native_crash/native_crash.dart';
      () async {
        runApp(MyApp());
      },
+      /// you can also provide a custom widget to show when emulator detected instead of crashing the app
+     onEmulatorDetected:(){
+        print("Emulator detected");
+        runApp(EmulatorApp());
+     },
    );
  }
 ```
-
