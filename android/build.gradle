@@ -25,9 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    if (project.android.hasProperty("namespace")) {
-        namespace 'com.kishormainali.native_crash'
-    }
+    namespace 'com.kishormainali.native_crash'
 
     compileSdk 34
 
@@ -50,10 +48,10 @@ android {
     }
 
     dependencies {
-        implementation "androidx.annotation:annotation:1.8.1"
+        implementation "androidx.annotation:annotation:1.8.2"
         implementation 'com.scottyab:rootbeer-lib:0.1.0'
         testImplementation 'org.jetbrains.kotlin:kotlin-test'
-        testImplementation 'org.mockito:mockito-core:5.1.1'
+        testImplementation 'org.mockito:mockito-core:5.2.0'
     }
 
     testOptions {

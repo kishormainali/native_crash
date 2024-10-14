@@ -1,3 +1,7 @@
+## 1.2.1
+
+- deps update
+
 ## 1.2.0
 
 - added support for showing custom widget when emulator/root/jailbreak/developer mode detected.

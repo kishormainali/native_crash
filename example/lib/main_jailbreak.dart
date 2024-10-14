@@ -23,7 +23,8 @@ class JailBreakApp extends StatelessWidget {
           title: const Text('JailBreak Detected'),
         ),
         body: const Center(
-          child: Text('You are trying to run your app on a jail broken/rooted device.'),
+          child: Text(
+              'You are trying to run your app on a jail broken/rooted device.'),
         ),
       ),
     );
