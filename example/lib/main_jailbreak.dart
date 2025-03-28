@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:native_crash/native_crash.dart';
-import 'package:native_crash_example/app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   crashOnJailBreak(
-    () => runApp(const App()),
+    () => runApp(const JailBreakApp()),
     onRootJailBreakDetected: () {
       runApp(const JailBreakApp());
     },
@@ -19,12 +18,11 @@ class JailBreakApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('JailBreak Detected'),
-        ),
+        appBar: AppBar(title: const Text('JailBreak Detected')),
         body: const Center(
           child: Text(
-              'You are trying to run your app on a jail broken/rooted device.'),
+            'You are trying to run your app on a jail broken/rooted device.',
+          ),
         ),
       ),
     );

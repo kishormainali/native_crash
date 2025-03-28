@@ -1,6 +1,6 @@
-# native_crash_example
+# example
 
-Demonstrates how to use the native_crash plugin.
+A new Flutter project.
 
 ## Getting Started
 

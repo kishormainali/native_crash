@@ -17,7 +17,8 @@ class NativeCrash {
 
   /// checkJailBreak
   static Future<bool> checkJailBreak({bool enableLogging = false}) {
-    return NativeCrashPlatform.instance.checkJailBreak(enableLogging: enableLogging);
+    return NativeCrashPlatform.instance
+        .checkJailBreak(enableLogging: enableLogging);
   }
 
   /// checkDevMode
@@ -56,7 +57,8 @@ Future<void> crashOnJailBreak(
     if (onRootJailBreakDetected != null) {
       return onRootJailBreakDetected();
     } else {
-      await NativeCrash.crash('You are trying to run your app on a jail broken/rooted device.');
+      await NativeCrash.crash(
+          'You are trying to run your app on a jail broken/rooted device.');
       return;
     }
   }
@@ -88,7 +90,8 @@ Future<void> crashOnDevMode(
     if (onDevModeDetected != null) {
       return onDevModeDetected();
     } else {
-      await NativeCrash.crash('You have enabled developer mode on your device.');
+      await NativeCrash.crash(
+          'You have enabled developer mode on your device.');
       return;
     }
   }

@@ -24,15 +24,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
+        appBar: AppBar(title: const Text('Plugin example app')),
         body: const Column(
           children: [
-            FilledButton(
-              onPressed: NativeCrash.crash,
-              child: Text('Crash'),
-            ),
+            FilledButton(onPressed: NativeCrash.crash, child: Text('Crash')),
           ],
         ),
       ),

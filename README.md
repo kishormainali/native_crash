@@ -11,6 +11,20 @@ dependencies:
   native_crash: latest
 ```
 
+### IOS Setup
+
+add the following to your `ios/Runner/Info.plist` file:
+
+````xml
+  <key>LSApplicationQueriesSchemes</key>
+	<array>
+			<string>undecimus</string>
+			<string>sileo</string>
+			<string>zbra</string>
+			<string>filza</string>
+	</array>
+```
+
 ## Usage
 
 ```dart
@@ -20,7 +34,7 @@ import 'package:native_crash/native_crash.dart';
 void crash() {
   NativeCrash.crash();
 }
-```
+````
 
 ## Check if device is rooted/jailbroken
 

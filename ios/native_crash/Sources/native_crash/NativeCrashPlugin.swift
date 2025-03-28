@@ -16,20 +16,20 @@ public class NativeCrashPlugin: NSObject, FlutterPlugin {
         let instance = NativeCrashPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
-    
+
     fileprivate func isSimulator()-> Bool {
         let isSimulator = UIDevice.current.isSimulator
         let amSimulator = IOSSecuritySuite.amIRunInEmulator()
         return isSimulator || amSimulator
     }
-    
+
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-        
+
         switch(call.method) {
         case NativeCrashPlugin.methodCrash:
             if let args = call.arguments as? [String: Any] {
                 print(args)
-                
+
                 let message = args["message"] as? String
                 try! crash(message: message)
                 result(nil)
@@ -39,9 +39,9 @@ public class NativeCrashPlugin: NSObject, FlutterPlugin {
             if isSimulator() {
                 result(false)
             } else {
-                let amJailbroken = IOSSecuritySuite.amIJailbroken()
+                let isJainBroken = IOSSecuritySuite.amIJailbroken()
                 let amReverseEngineered = IOSSecuritySuite.amIReverseEngineered()
-                result(amJailbroken || amReverseEngineered)
+                result(isJainBroken || amReverseEngineered)
             }
             break
         case NativeCrashPlugin.methodCheckDevMode:
