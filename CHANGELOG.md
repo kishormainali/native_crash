@@ -1,3 +1,9 @@
+## 1.3.0
+
+- migrated ios implementation to Swift Package Manager
+- migrate android implementation to latest flutter plugin template
+- updated example project
+
 ## 1.2.1
 
 - deps update

@@ -2,7 +2,6 @@ package com.kishormainali.native_crash
 
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
-import net.bytebuddy.implementation.MethodCall
 import kotlin.test.Test
 import org.mockito.Mockito
 
@@ -22,6 +21,7 @@ internal class NativeCrashPluginTest {
     val call = MethodCall("getPlatformVersion", null)
     val mockResult: MethodChannel.Result = Mockito.mock(MethodChannel.Result::class.java)
     plugin.onMethodCall(call, mockResult)
+
     Mockito.verify(mockResult).success("Android " + android.os.Build.VERSION.RELEASE)
   }
 }
