@@ -15,6 +15,8 @@ Flutter plugin to simulate native crash
   s.source           = { :path => '.' }
   s.source_files = 'native_crash/Sources/native_crash/**/*'
   s.dependency 'Flutter'
+  s.dependency 'IOSSecuritySuite'
+
   s.platform = :ios, '15.0'
 
   # Flutter.framework does not contain a i386 slice.
