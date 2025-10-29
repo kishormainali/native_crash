@@ -1,5 +1,7 @@
-## 1.3.0
+## 1.3.1
+- fix ios build issue
 
+## 1.3.0
 - migrated ios implementation to Swift Package Manager
 - migrate android implementation to latest flutter plugin template
 - updated example project
