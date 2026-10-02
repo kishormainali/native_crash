@@ -36,6 +36,13 @@ jobs:
           }
           EOF
 
+      - name: 🧪 Run Tests
+        run: flutter test
+
+      - name: 🤖 Build example (Android)
+        working-directory: example
+        run: flutter build apk --debug
+
       - name: 📝 Format Code
         run: dart format .
 
