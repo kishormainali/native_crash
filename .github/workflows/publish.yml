@@ -87,6 +87,15 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      # Tooling run during setup can touch tracked files (e.g. example/
+      # analysis_options.yaml), which makes pub warn about a dirty git state and
+      # exit 65. Show what changed, then restore the checked-out state.
+      - name: Ensure clean git state
+        run: |
+          git status --short
+          git diff
+          git checkout -- .
+
       - name: Publish - dry run
         run: dart pub publish --dry-run
 
