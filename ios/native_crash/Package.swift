@@ -12,12 +12,14 @@ let package = Package(
         .library(name: "native-crash", targets: ["native_crash"])
     ],
     dependencies: [
-        .package(url: "https://github.com/securing/IOSSecuritySuite.git", from: "1.5.0")
+        .package(url: "https://github.com/securing/IOSSecuritySuite.git", from: "2.3.0"),
+        .package(name: "FlutterFramework", path: "../FlutterFramework")
     ],
     targets: [
         .target(
             name: "native_crash",
             dependencies: [
+                .product(name: "FlutterFramework", package: "FlutterFramework"),
                 .product(name: "IOSSecuritySuite", package: "IOSSecuritySuite")
             ],
             resources: [

@@ -8,14 +8,25 @@ Add this to your package's pubspec.yaml file:
 
 ```yaml
 dependencies:
-  native_crash: latest
+  native_crash: ^2.0.0
 ```
+
+## Requirements
+
+| | Minimum |
+|---|---|
+| Flutter | 3.47.0 |
+| Dart | 3.13.0 |
+| Android | minSdk 24, AGP 9 / Gradle 9 (Java 17) |
+| iOS | 15.0, Swift Package Manager |
+
+CocoaPods is **no longer supported** on iOS. Android native libraries are 16 KB page-size aligned.
 
 ### IOS Setup
 
 add the following to your `ios/Runner/Info.plist` file:
 
-````xml
+```xml
   <key>LSApplicationQueriesSchemes</key>
 	<array>
 			<string>undecimus</string>
@@ -24,6 +35,13 @@ add the following to your `ios/Runner/Info.plist` file:
 			<string>filza</string>
 	</array>
 ```
+
+## Migrating from 1.x
+
+1. Upgrade Flutter to 3.47.0 or newer.
+2. Make sure Swift Package Manager is enabled (`flutter config --enable-swift-package-manager`, on by default in recent Flutter).
+3. Raise your app's Android `minSdk` to 24 or higher.
+4. Remove any `pod 'native_crash'` references from your `Podfile`; no Dart API changes were made.
 
 ## Usage
 
