@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
@@ -37,7 +37,7 @@ jobs:
     needs: test
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Check tag matches pubspec version
         run: |
@@ -67,7 +67,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Provisions the OIDC token pub.dev needs: it requests a GitHub-signed ID
       # token for https://pub.dev, exports it as PUB_TOKEN and registers it with
@@ -113,7 +113,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Pulls this version's own section out of CHANGELOG.md (between its
       # "## x.y.z" heading and the next one) so the GitHub Release body
